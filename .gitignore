@@ -1,0 +1,17 @@
+# VSCode
+__pycache__/
+.vscode/
+
+# virtualenv
+.venv
+
+# Packages
+*.egg
+*.egg-info
+build
+dist
+dist/*
+eggs
+
+# Logs
+logs/

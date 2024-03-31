@@ -1,0 +1,11 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create S3 bucket for {{ aws_account }}
+
+Resources:
+  {% for bucket in buckets -%}
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+    BucketName: {{ bucket.name }}-{{ aws_account }}
+  {% endfor %}

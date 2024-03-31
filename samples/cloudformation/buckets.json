@@ -1,0 +1,4 @@
+{
+  "buckets": [{ "name": "bucket-one" }, { "name": "bucket-two" }],
+  "aws_account": "123456789"
+}
