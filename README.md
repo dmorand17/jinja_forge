@@ -15,7 +15,15 @@ ln -s /path/to/checkout/j2_forge.sh ~/.local/bin/j2_forge.sh
 ## Usage
 
 ```
-put output of calling --help
+Usage: main.py [OPTIONS]
+
+  Simple program that renders jinja template
+
+Options:
+  -i, --input FILE     Input yaml/json file  [required]
+  -t, --template FILE  Jinja template to use for rendering  [required]
+  -o, --output FILE    Output file
+  --help               Show this message and exit.
 ```
 
 ## Examples
