@@ -2,7 +2,7 @@
 
 Simple project to generate output from [jinja](https://palletsprojects.com/p/jinja/) templates.
 
-## Getting Started
+## ✏️ Getting Started
 
 Add j2_forge.sh to PATH
 
@@ -12,7 +12,7 @@ example of adding to ~/.local/bin which is typically on PATH:
 ln -s /path/to/checkout/j2_forge.sh ~/.local/bin/j2_forge.sh
 ```
 
-## Usage
+## 🚀 Usage
 
 ```
 Usage: main.py [OPTIONS]
@@ -30,7 +30,7 @@ Options:
 
 list some examples here of calling the script
 
-## Development
+## 🛠️ Development
 
 1/ Create a virtual environment
 
