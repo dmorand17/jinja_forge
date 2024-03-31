@@ -1,10 +1,10 @@
-# Project name
+# Jinja Forge
 
-{{description}}
+Simple project to generate output from [jinja](https://palletsprojects.com/p/jinja/) templates.
 
 ## Getting Started
 
-Add template.sh to PATH
+Add j2_forge.sh to PATH
 
 example of adding to ~/.local/bin which is typically on PATH:
 

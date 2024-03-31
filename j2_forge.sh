@@ -6,7 +6,6 @@ SCRIPT_DIR=$(dirname -- "$(readlink -f -- "$0";)" ;)
 #SCRIPT_NAME=$( basename -- "$0"; )
 
 pushd "$SCRIPT_DIR" > /dev/null
-
 # Check if virtual environment exists, and create if missing.  
 # Install requirements if missing.
 if [ ! -d "./.venv" ]; then
