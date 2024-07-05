@@ -9,7 +9,7 @@ Add `j2_forge-image.sh` to `$PATH`
 example of adding to ~/.local/bin which is typically on PATH:
 
 ```bash
-ln -s /path/to/checkout/bin/j2_forge-image.sh ~/.local/bin/j2_forge.sh
+ln -s /path/to/checkout/bin/j2_forge-image.sh ~/.local/bin/j2_forge
 ```
 
 ## 🚀 Usage
@@ -65,18 +65,20 @@ pip install -r requirements.txt
 ### Image development
 
 ```bash
-docker build -f Dockerfile.dev -t j2_forge:dev .
-docker push j2_forge:dev <username>/j2forge:dev
-```
-
-OR
-
-```bash
 DOCKERHUB_USERNAME=<username>
 make build-and-push-dev DOCKER_IMAGE_NAME=$DOCKERHUB_USERNAME/j2forge \
 ```
 
+_Manually_
+
+```bash
+docker build -f Dockerfile.dev -t j2_forge:dev .
+docker push j2_forge:dev <username>/j2forge:dev
+```
+
 ## 🛠️ Build
+
+### Login to dockerhub
 
 1/ Login to dockerhub
 
@@ -92,22 +94,24 @@ podman users
 podman login docker.io
 ```
 
-2/ Build image
+### Build image - using Makefile
+
+```bash
+DOCKERHUB_USERNAME=<username>
+make build-and-push DOCKER_IMAGE_NAME=$DOCKERHUB_USERNAME/j2forge \
+```
+
+### Build image - manually
+
+1/ Build image
 
 ```bash
 docker build -t j2_forge .
 ```
 
-3/ Push image
+2/ Push image
 
 ```bash
 DOCKERHUB_USERNAME=<username>
 docker push $DOCKERHUB_USERNAME/j2forge
-```
-
-### Using Makefile
-
-```bash
-DOCKERHUB_USERNAME=<username>
-make build-and-push DOCKER_IMAGE_NAME=$DOCKERHUB_USERNAME/j2forge \
 ```

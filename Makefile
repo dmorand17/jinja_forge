@@ -2,7 +2,7 @@
 DOCKER_IMAGE_NAME := your-image-name
 DOCKER_TAG := latest
 DEV_DOCKER_TAG := dev
-DOCKER_REGISTRY := your-registry.com
+DOCKER_REGISTRY := docker.io
 DOCKERFILE_PATH := ./Dockerfile
 DEV_DOCKERFILE_PATH := ./Dockerfile.dev
 
@@ -11,7 +11,7 @@ FULL_IMAGE_NAME := $(DOCKER_REGISTRY)/$(DOCKER_IMAGE_NAME):$(DOCKER_TAG)
 DEV_IMAGE_NAME := $(DOCKER_REGISTRY)/$(DOCKER_IMAGE_NAME):$(DEV_DOCKER_TAG)
 
 # Phony targets
-.PHONY: all build push build-and-push build-dev push-dev build-and-push-dev help
+.PHONY: all build push build-and-push build-dev push-dev build-and-push-dev clean help
 
 # Default target
 all: build-and-push
@@ -41,6 +41,11 @@ push-dev:
 
 # Build and push the development Docker image
 build-and-push-dev: build-dev push-dev
+
+clean:
+	@echo "Cleaning up local Docker images..."
+	docker rmi $(FULL_IMAGE_NAME)	
+	docker rmi $(DEV_IMAGE_NAME)	
 
 # Display help information
 help:
