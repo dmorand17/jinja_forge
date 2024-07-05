@@ -4,12 +4,12 @@ Simple project to generate output from [jinja](https://palletsprojects.com/p/jin
 
 ## 🏁 Getting Started
 
-Add j2_forge.sh to PATH
+Add `j2_forge-image.sh` to `$PATH`
 
 example of adding to ~/.local/bin which is typically on PATH:
 
 ```bash
-ln -s /path/to/checkout/j2_forge.sh ~/.local/bin/j2_forge.sh
+ln -s /path/to/checkout/bin/j2_forge-image.sh ~/.local/bin/j2_forge.sh
 ```
 
 ## 🚀 Usage
