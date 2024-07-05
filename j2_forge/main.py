@@ -11,16 +11,42 @@ This script will take a yaml file and jinja template and render the yaml file in
 """
 
 
+def check_file_type(file_path):
+    with open(file_path, "r") as file:
+        content = file.read()
+
+    # Try parsing as JSON
+    try:
+        json.loads(content)
+        return "JSON"
+    except json.JSONDecodeError:
+        pass
+
+    # Try parsing as YAML
+    try:
+        yaml.safe_load(content)
+        return "YAML"
+    except yaml.YAMLError:
+        pass
+
+    # If neither parsing succeeded
+    return "Unknown"
+
+
 def load_data(input_file):
-    loader_map = {".json": json.load, ".yaml": yaml.safe_load}
+    """
+    Loads the input file based on the file extension (JSON or YAML)
+    """
+    loader_map = {"JSON": json.load, "YAML": yaml.safe_load}
 
-    file_ext = pathlib.Path(input_file).suffix
+    file_type = check_file_type(input_file)
+    # file_ext = pathlib.Path(input_file).suffix
 
-    if file_ext not in loader_map:
+    if file_type not in loader_map:
         raise ValueError("Unsupported file format")
 
     with open(input_file, "r") as f:
-        return loader_map[file_ext](f)
+        return loader_map[file_type](f)
 
 
 # Add a click command
