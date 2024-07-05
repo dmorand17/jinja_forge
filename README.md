@@ -2,7 +2,7 @@
 
 Simple project to generate output from [jinja](https://palletsprojects.com/p/jinja/) templates.
 
-## ✏️ Getting Started
+## 🏁 Getting Started
 
 Add j2_forge.sh to PATH
 
@@ -26,9 +26,21 @@ Options:
   --help               Show this message and exit.
 ```
 
-## Examples
+## 🧪 Examples
 
-list some examples here of calling the script
+Testing the samples
+
+_Creating a cloudformation template and output to console_
+
+```bash
+./j2_forge.sh -i samples/cloudformation/buckets.yaml -t samples/cloudformation/cf-template.j2
+```
+
+_Creating a cloudformation template and output to file_
+
+```bash
+./j2_forge.sh -i samples/cloudformation/buckets.yaml -t samples/cloudformation/cf-template.j2 -o template.yml
+```
 
 ## 🛠️ Development
 
@@ -49,3 +61,7 @@ pip install -r requirements.txt
 
 - [click](https://click.palletsprojects.com/en/8.1.x/)
 - [jinja2](https://jinja.palletsprojects.com/en/3.1.x/)
+
+## TODO
+
+- Convert to run as a container
